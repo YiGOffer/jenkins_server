@@ -26,11 +26,9 @@ func Build(c *gin.Context) {
 	resp, _ := http.PostForm(reqUrl,urlValues)
     body, _ := ioutil.ReadAll(resp.Body)
     fmt.Println(string(body))
-	// fmt.Printf("Address of Jenkins : %s\n", Utill.Conf.JenkinsAddress)
-	// fmt.Printf("Port of Jenkins : %s\n", Utill.Conf.JenkinsPort)
+
 	debReqJson , _ := json.Marshal(debReq)
 	
-	fmt.Printf("req : %s\n", string(debReqJson))
 	c.JSON(http.StatusOK, gin.H{
 		"Code" : http.StatusOK,
 		"data": string(debReqJson),
