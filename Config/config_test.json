@@ -1,0 +1,5 @@
+{
+    "jenkins_port": "10240",
+    "jenkins_address": "192.168.171.130",
+    "token": "pipelineTest"
+}

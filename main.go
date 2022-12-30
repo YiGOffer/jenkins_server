@@ -1,17 +1,18 @@
 package main
 
 import (
-	"net/http"
+	jb "jenkinsServer/JenkinsBuild"
+	"jenkinsServer/Utill"
 
 	"github.com/gin-gonic/gin"
 )
 
+func init() {
+	Utill.InitConfig()
+}
+
 func main() {
-  r := gin.Default()
-  r.GET("/ping", func(c *gin.Context) {
-    c.JSON(http.StatusOK, gin.H{
-      "message": "pong",
-    })
-  })
-  r.Run() // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
+	r := gin.Default()
+	r.GET("/debBuild",jb.Build)
+	r.Run(":9000") // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
 }
